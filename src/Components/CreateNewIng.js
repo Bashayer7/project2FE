@@ -1,25 +1,23 @@
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
 import React, { useState } from "react";
-import categoryStore from "../stores/categoryaStore";
+import IngredientStore from "../stores/ingredientStore";
 
-export default function CreateNewCategory(props) {
-  const [category, setCatogery] = useState({
+export default function CreateNewIng(props) {
+  const [ingerdient, setIngredient] = useState({
     name: "",
-    image: "",
-    desciption: "",
+    quantity: "",
   });
 
   const handleChange = (e) => {
-    setCatogery({ ...category, [e.target.name]: e.target.value });
+    setIngredient({ ...ingredient, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  categoryStore.createCategory(category);
-  setCatogery({
+  ingredientStore.createIngredient(ingredient);
+  setIngredient({
     name: "",
-    image: "",
-    desciption: "",
+    quantity: "",
   });
   props.closeModal(); // this is to close the modal that is shown
 
@@ -33,7 +31,7 @@ export default function CreateNewCategory(props) {
           <InputGroup>
             <InputGroup.Text>Name</InputGroup.Text>
             <Form.Control
-              value={category.name}
+              value={ingerdient.name}
               type="text"
               name="name"
               onChange={handleChange}
@@ -41,22 +39,11 @@ export default function CreateNewCategory(props) {
           </InputGroup>
           <br />
           <InputGroup>
-            <InputGroup.Text>Image</InputGroup.Text>
+            <InputGroup.Text>quantity</InputGroup.Text>
             <Form.Control
-              value={category.image}
+              value={ingerdient.quantity}
               type="text"
-              name="image"
-              onChange={handleChange}
-            />
-          </InputGroup>
-          <br />
-          <br />
-          <InputGroup>
-            <InputGroup.Text>desciption</InputGroup.Text>
-            <Form.Control
-              value={category.desciption}
-              type="text"
-              name="desciption"
+              name="quantity"
               onChange={handleChange}
             />
           </InputGroup>
@@ -65,7 +52,7 @@ export default function CreateNewCategory(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleSubmit}>
-          Create category
+          Create ingredient
         </Button>
       </Modal.Footer>
     </Modal>
