@@ -30,6 +30,26 @@ export default function CreateNewCategory(props) {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
+          <div className="hh">
+            <h3>category</h3>
+            <div className="catg">
+              <form action="http://localhost:8000/api/category">
+                <label for="catg">Choose a category : </label>
+                <select name="catgo" id="category">
+                  <option value="categoryId">BreakFast</option>
+                  <option value="categoryId">Lunch</option>
+                  <option value="categoryId">Dinner</option>
+                  <option value="categoryId">Drinks</option>
+                </select>
+                <br></br>
+                <div className="btn">
+                  <button type="submit">Submit</button>
+                  <button type="create">Create</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
           <InputGroup>
             <InputGroup.Text>Name</InputGroup.Text>
             <Form.Control
