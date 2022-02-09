@@ -1,6 +1,6 @@
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
 import React, { useState } from "react";
-import IngredientStore from "../stores/ingredientStore";
+import ingredientStore from "../stores/ingredientStore";
 
 export default function CreateNewIng(props) {
   const [ingerdient, setIngredient] = useState({
