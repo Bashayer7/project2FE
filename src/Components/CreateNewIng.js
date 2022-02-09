@@ -24,7 +24,7 @@ export default function CreateNewIng(props) {
   return (
     <Modal centered show={props.isOpen} onHide={props.closeModal}>
       <Modal.Header closeButton>
-        <Modal.Title>Create category</Modal.Title>
+        <Modal.Title>Create ingredient</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>

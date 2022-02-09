@@ -1,9 +1,7 @@
 import { makeAutoObservable, configure } from "mobx";
 import decode from "jwt-decode";
 import api from "./api";
-configure({
-  enforceActions: "never",
-});
+
 class AuthStore {
   user = null;
 
