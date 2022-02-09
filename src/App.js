@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="hh">
+      <h3>category</h3>
+      <div className="catg">
+        <form action="http://localhost:8000/api/category">
+          <label for="catg">Choose a category : </label>
+          <select name="catgo" id="category">
+            <option value="categoryId">BreakFast</option>
+            <option value="categoryId">Lunch</option>
+            <option value="categoryId">Dinner</option>
+            <option value="categoryId">Drinks</option>
+          </select>
+          <br></br>
+          <div className="btn">
+            <button type="submit">Submit</button>
+            <button type="create">Create</button>
+          </div>
+
+          {/* <input type="submit" value="Submit"> */}
+        </form>
+      </div>
     </div>
   );
 }
