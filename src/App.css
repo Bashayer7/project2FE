@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(46, 46, 14);
 }
 
 .App-logo {
@@ -11,6 +12,21 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.hh {
+  text-align: center;
+  font-size: large;
+}
+.catg {
+  color: rgb(20, 18, 18);
+  background-color: rgb(155, 147, 137);
+  text-align: center;
+}
+.btn {
+  color: rgb(68, 110, 70);
+  padding: 14px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .App-header {
