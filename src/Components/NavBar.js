@@ -5,7 +5,7 @@ import SignUpModal from "./SignUpModal";
 import authStore from "../stores/authStore";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
-import CatForm from "./CatForm";
+import RecipeModal from "./RecipeModal";
 
 function Navbar() {
   return (
@@ -17,17 +17,18 @@ function Navbar() {
           <Link to={"/"}>
             <Button>Home</Button>
           </Link>
-          <CatForm />
+         
           <Button onClick={authStore.signout}>SignOut</Button>
           </div>
     </>
       ) : ( 
         <>
-        <Link to={"/"}>
-            <Button>Home</Button>
+        <Link to="/">
+           Home
           </Link>
           <SignUpModal />
           <SignInModal />  
+          <RecipeModal/>
         </>
       )}
     </Nav>

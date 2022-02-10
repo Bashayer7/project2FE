@@ -3,22 +3,22 @@ import React, { useState } from "react";
 import authStore from "../stores/authStore";
 
 function SignUpModal() {
-  const [isOpen, setIsOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
 
-    const [user, setUser] = useState({
-      username: "",
-      password: "",
-      email: '',
-    });
+const [user, setUser] = useState({
+username: "",
+password: "",
+email: '',
+});
 
-  const handleChange = (event) =>
-    setUser({ ...user, [event.target.name]: event.target.value });
+const handleChange = (event) =>
+setUser({ ...user, [event.target.name]: event.target.value });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    authStore.signUp(user);
-    setIsOpen(false);
-  };
+const handleSubmit = (event) => {
+event.preventDefault();
+authStore.signUp(user);
+setIsOpen(false);
+};
 
   return (
     <>
