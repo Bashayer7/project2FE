@@ -1,8 +1,9 @@
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
 import React, { useState } from "react";
 import categoriesStore from "../stores/catgStore";
+import { observer } from "mobx-react-lite";
 
-export default function CreateNewCategory(props) {
+ function CreateNewCategory(props) {
   const [category, setCatogery] = useState({
     name: "",
     image: "",
@@ -14,7 +15,7 @@ export default function CreateNewCategory(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
+  
   categoriesStore.CreateCatgeory(category);
   setCatogery({
     name: "",
@@ -22,7 +23,7 @@ export default function CreateNewCategory(props) {
     desciption: "",
   });
   props.closeModal(); // this is to close the modal that is shown
-
+  }
   return (
     <Modal centered show={props.isOpen} onHide={props.closeModal}>
       <Modal.Header closeButton>
@@ -30,25 +31,7 @@ export default function CreateNewCategory(props) {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          <div className="hh">
-            <h3>category</h3>
-            <div className="catg">
-              <form action="http://localhost:8000/api/category">
-                <label for="catg">Choose a category : </label>
-                <select name="catgo" id="category">
-                  <option value="categoryId">BreakFast</option>
-                  <option value="categoryId">Lunch</option>
-                  <option value="categoryId">Dinner</option>
-                  <option value="categoryId">Drinks</option>
-                </select>
-                <br></br>
-                <div className="btn">
-                  <button type="submit">Submit</button>
-                  <button type="create">Create</button>
-                </div>
-              </form>
-            </div>
-          </div>
+         
 
           <InputGroup>
             <InputGroup.Text>Name</InputGroup.Text>
@@ -91,3 +74,6 @@ export default function CreateNewCategory(props) {
     </Modal>
   );
 }
+
+
+export default observer(CreateNewCategory)

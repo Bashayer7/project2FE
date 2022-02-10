@@ -1,12 +1,18 @@
 import logo from "./logo.svg";
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import CreateNewCategory from "./Components/CreateNewCategory";
+import CategoreisList from './Components/CategoreisList'
+import { Button } from "react-bootstrap";
 
 function App() {
-  // return <CreateNewCategory />;
+const [open,setOpen]= useState(false)
   return(
-  <div></div>)
+  <div>
+    <Button onClick={()=>setOpen(true)}> Create Category</Button>
+   <CategoreisList/>
+  <CreateNewCategory isOpen = {open}  closeModal ={()=>setOpen(false)}/>
+  </div>)
 }
 
 export default App;

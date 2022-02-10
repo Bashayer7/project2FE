@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 
 
 class CatgStore {
-  categories = null;
+  categories = [];
 
   constructor() {
     makeAutoObservable(this, {});
@@ -11,6 +11,7 @@ class CatgStore {
   fetchCatgeory = async () => {
     try {
       const res = await inst.get("/categories");
+      this.categories= res.data
     } catch (error) {
       console.log(error);
     }
@@ -19,12 +20,10 @@ class CatgStore {
   CreateCatgeory = async (newCatg) => {
     try {
       const res = await inst.post("/categories", newCatg);
+      console.log(res.data)
       this.categories.push(res.data);
     } catch (error) {
-      this.MySwal.fire({
-        icon: "error",
-        text: "You cannot create a new categories",
-      });
+     console.log(error)
     }
   };
 }
