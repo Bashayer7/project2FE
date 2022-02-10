@@ -4,7 +4,9 @@ import "./App.css";
 import CreateNewCategory from "./Components/CreateNewCategory";
 
 function App() {
-  return <CreateNewCategory />;
+  // return <CreateNewCategory />;
+  return(
+  <div></div>)
 }
 
 export default App;

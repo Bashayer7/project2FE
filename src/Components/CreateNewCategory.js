@@ -1,6 +1,6 @@
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
 import React, { useState } from "react";
-import categoryStore from "../stores/catgStore";
+import categoriesStore from "../stores/catgStore";
 
 export default function CreateNewCategory(props) {
   const [category, setCatogery] = useState({
@@ -15,7 +15,7 @@ export default function CreateNewCategory(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  categoryStore.CreateCatgeory(category);
+  categoriesStore.CreateCatgeory(category);
   setCatogery({
     name: "",
     image: "",

@@ -1,18 +1,16 @@
 import inst from "./Instance";
-import { observable, action, makeObservable } from "mobx";
-import axios from "axios";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { makeAutoObservable } from "mobx";
+
 
 class CatgStore {
-  category = null;
+  categories = null;
 
   constructor() {
     makeAutoObservable(this, {});
   }
   fetchCatgeory = async () => {
     try {
-      const res = await inst.get("/category");
+      const res = await inst.get("/categories");
     } catch (error) {
       console.log(error);
     }
@@ -20,16 +18,16 @@ class CatgStore {
 
   CreateCatgeory = async (newCatg) => {
     try {
-      const res = await inst.post("/category", newCatg);
-      this.category.push(res.data);
+      const res = await inst.post("/categories", newCatg);
+      this.categories.push(res.data);
     } catch (error) {
       this.MySwal.fire({
         icon: "error",
-        text: "You cannot create a new category",
+        text: "You cannot create a new categories",
       });
     }
   };
 }
-const categoryStore = new CatgStore();
-categoryStore.fetchCatgeory();
-export default categoryStore;
+const categoriesStore = new CatgStore();
+categoriesStore.fetchCatgeory();
+export default categoriesStore;
